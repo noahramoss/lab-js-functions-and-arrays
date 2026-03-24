@@ -1,6 +1,7 @@
 // Iteration 1 | Find the Maximum
 function maxOfTwoNumbers(a, b) {
   return a > b ? a : b;
+  // return Math.max(a,b); librería math para calcular el máximo de dos números
 }
 
 // Iteration 2 | Find the Longest Word
@@ -34,6 +35,18 @@ function findLongestWord(words) {
     else if (words[i].length > result.length) result = words[i];
   }
   return result;
+  /** OTRA SOLUCIÓN
+   * if(!words.length) return null;
+   * let longest = words[0];
+   * for (let i = 1; i < words.length; i++) {
+   *    if(words[i].length > longest.length) longest= words[i];
+   * }
+   * return longest;
+   * 
+   * PARA REDUCIRLO MAS
+   * if(!words.length) return null;
+   * return words.reduce((longest, current) => current.length > longest.length ? current : longest);
+   */
 }
 
 // Iteration 3 | Sum Numbers
@@ -51,6 +64,11 @@ function sumNumbers(numbers) {
         suma += numbers[i];
     }
     return suma;
+
+    /**
+     * OTRA SOLUCIÓN
+     * return numbers.reduce((acc,num)=>acc + num, 0);
+     */
 }
 
 // Iteration 4 | Numbers Average
@@ -61,6 +79,12 @@ function averageNumbers(numbers2) {
     let average = 0;
     
     return numbers2.length != 0 ? average=sumNumbers(numbers2)/numbers2.length : average;
+
+    /**
+     * OTRA SOLUCIÓN
+     * if(!numbers.length) return 0;
+     * return sumNumbers(numbers)/numbers.length;
+     */
 }
 
 // Iteration 5 | Find Elements
@@ -87,4 +111,20 @@ function doesWordExist(words2, word) {
         if(element === word) found = true;
     });
     return found;
+
+    /**
+     * OTRA SOLUCIÓN (Recomendable usar while para búsquedas)
+     * 
+     * if(!words.length)return null;
+     * let index = 0;
+     * while (index < words.length){
+     *  if(words[i] === word) return true;
+     *  index++;
+     * }
+     * return false;
+     *  
+     * USANDO ARRAY METHODS
+     * if(!words.length)return null;
+     * return words.includes(word); //Devuelve true si la palabra word está en words, sino false
+     */
 }
